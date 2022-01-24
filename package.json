@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Gabrielnz/tic-tac-toe-kata/issues"
   },
-  "homepage": "https://github.com/Gabrielnz/tic-tac-toe-kata#readme"
+  "homepage": "https://github.com/Gabrielnz/tic-tac-toe-kata#readme",
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
 }
