@@ -1,0 +1,25 @@
+{
+  "name": "tic-tac-toe-kata",
+  "version": "1.0.0",
+  "description": "the goal of this kata is to practice the 10 rules of object calisthenics",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gabrielnz/tic-tac-toe-kata.git"
+  },
+  "keywords": [
+    "kata",
+    "typescript",
+    "calisthenics",
+    "ood"
+  ],
+  "author": "gnunez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Gabrielnz/tic-tac-toe-kata/issues"
+  },
+  "homepage": "https://github.com/Gabrielnz/tic-tac-toe-kata#readme"
+}
