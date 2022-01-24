@@ -2,7 +2,6 @@
   "name": "tic-tac-toe-kata",
   "version": "1.0.0",
   "description": "the goal of this kata is to practice the 10 rules of object calisthenics",
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
