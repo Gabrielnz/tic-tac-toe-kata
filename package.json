@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Gabrielnz/tic-tac-toe-kata#readme",
   "devDependencies": {
+    "jest": "^27.4.7",
     "typescript": "^4.5.5"
   }
 }
