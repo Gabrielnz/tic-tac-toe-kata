@@ -14,6 +14,6 @@ export class TicTacToe {
     }
 
     play(xCoordinate: number, yCoordinate: number) {
-        this._board[0][0] = 'X'
+        this._board[xCoordinate][yCoordinate] = 'X'
     }
 }

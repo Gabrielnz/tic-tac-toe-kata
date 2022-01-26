@@ -8,11 +8,17 @@ describe('tic tac toe', () => {
         expect(game.board).toEqual(expectedBoard)
     })
 
-    test('start playing with X', () => {
+    test.each([
+        {xCoordinate: 0, yCoordinate: 0, expectedBoard: [['X', '', ''], ['', '', ''], ['', '', '']]},
+        {xCoordinate: 2, yCoordinate: 2, expectedBoard: [['', '', ''], ['', '', ''], ['', '', 'X']]},
+        {xCoordinate: 1, yCoordinate: 0, expectedBoard: [['', '', ''], ['X', '', ''], ['', '', '']]},
+        {xCoordinate: 0, yCoordinate: 2, expectedBoard: [['', '', 'X'], ['', '', ''], ['', '', '']]},
+        {xCoordinate: 1, yCoordinate: 1, expectedBoard: [['', '', ''], ['', 'X', ''], ['', '', '']]}
+    ])('start playing with X on coordinates (%i, %i)', ({ xCoordinate, yCoordinate, expectedBoard }) => {
         const game = new TicTacToe()
 
-        game.play(0, 0)
+        game.play(xCoordinate, yCoordinate)
 
-        const expectedBoard: string[][] = [['X', '', ''], ['', '', ''], ['', '', '']]
+        expect(game.board).toEqual(expectedBoard)
     })
 })
