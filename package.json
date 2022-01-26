@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "the goal of this kata is to practice the 10 rules of object calisthenics",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch"
   },
   "repository": {
     "type": "git",
