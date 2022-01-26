@@ -7,4 +7,12 @@ describe('tic tac toe', () => {
         const expectedBoard: string[][] = [['', '', ''], ['', '', ''], ['', '', '']]
         expect(game.board).toEqual(expectedBoard)
     })
+
+    test('start playing with X', () => {
+        const game = new TicTacToe()
+
+        game.play(0, 0)
+
+        const expectedBoard: string[][] = [['X', '', ''], ['', '', ''], ['', '', '']]
+    })
 })
