@@ -9,12 +9,12 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        {xCoordinate: 0, yCoordinate: 0, expectedBoard: [['X', '', ''], ['', '', ''], ['', '', '']]},
-        {xCoordinate: 2, yCoordinate: 2, expectedBoard: [['', '', ''], ['', '', ''], ['', '', 'X']]},
-        {xCoordinate: 1, yCoordinate: 0, expectedBoard: [['', '', ''], ['X', '', ''], ['', '', '']]},
-        {xCoordinate: 0, yCoordinate: 2, expectedBoard: [['', '', 'X'], ['', '', ''], ['', '', '']]},
-        {xCoordinate: 1, yCoordinate: 1, expectedBoard: [['', '', ''], ['', 'X', ''], ['', '', '']]}
-    ])('start playing with X on coordinates (%i, %i)', ({ xCoordinate, yCoordinate, expectedBoard }) => {
+        [0, 0, [['X', '', ''], ['', '', ''], ['', '', '']]],
+        [2, 2, [['', '', ''], ['', '', ''], ['', '', 'X']]],
+        [1, 0, [['', '', ''], ['X', '', ''], ['', '', '']]],
+        [0, 2, [['', '', 'X'], ['', '', ''], ['', '', '']]],
+        [1, 1, [['', '', ''], ['', 'X', ''], ['', '', '']]]
+    ])('start playing with X on coordinates (%i, %i)', (xCoordinate: number, yCoordinate: number, expectedBoard: string[][]) => {
         const game = new TicTacToe()
 
         game.play(xCoordinate, yCoordinate)
