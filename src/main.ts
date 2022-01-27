@@ -17,6 +17,10 @@ export class TicTacToe {
 
     play(xCoordinate: number, yCoordinate: number) {
         this._board[xCoordinate][yCoordinate] = this.currentPlayer
+        this.setNextPlayer()
+    }
+
+    private setNextPlayer() {
         this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
     }
 }
