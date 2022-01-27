@@ -16,8 +16,8 @@ export class TicTacToe {
         return this.gameBoard
     }
 
-    play(xCoordinate: number, yCoordinate: number) {
-        this.gameBoard.setPosition(xCoordinate, yCoordinate, this.currentPlayer)
+    play(coordinates: Coordinates): void {
+        this.gameBoard.setPosition(coordinates, this.currentPlayer)
         this.setNextPlayer()
     }
 
@@ -33,8 +33,8 @@ export class Board {
         this.board = board
     }
 
-    setPosition(xCoordinate: number, yCoordinate: number, position: Position) {
-        this.board[xCoordinate][yCoordinate] = position
+    setPosition(coordinates: Coordinates, position: Position) {
+        this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()] = position
     }
 
     equalsTo(otherBoard: Board): boolean {
@@ -46,4 +46,22 @@ export enum Position {
     X = 'X',
     O = 'O',
     Empty = ' '
+}
+
+export class Coordinates {
+    private x: number
+    private y: number
+
+    constructor(x: number, y: number) {
+        this.x = x
+        this.y = y
+    }
+
+    getXCoordinate(): number {
+        return this.x
+    }
+
+    getYCoordinate(): number {
+        return this.y
+    }
 }
