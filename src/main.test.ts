@@ -81,6 +81,18 @@ describe('tic tac toe', () => {
 
         expect(game.getWinner()).toBe('X wins')
     })
+
+    test('cannot get a winner when there is no winner yet', () => {
+        const game = new TicTacToe()
+        game.play(new Coordinates(0, 0))
+        game.play(new Coordinates(2, 2))
+        game.play(new Coordinates(1, 0))
+        game.play(new Coordinates(0, 2))
+        game.play(new Coordinates(2, 1))
+
+        const action = () => game.getWinner()
+        expect(action).toThrowError('There is no winner yet')
+    })
 })
 
 function playSoThatXHaveAnHorizontalLine(game: TicTacToe) {
