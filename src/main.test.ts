@@ -21,4 +21,20 @@ describe('tic tac toe', () => {
 
         expect(game.board).toEqual(expectedBoard)
     })
+
+    test('X and O play alternatively', () => {
+        const game = new TicTacToe()
+
+        game.play(0, 0)
+        game.play(2, 2)
+        game.play(1, 0)
+        game.play(0, 2)
+        game.play(2, 1)
+
+        expect(game.board).toEqual([
+            ['X', '', 'O'],
+            ['X', '', ''],
+            ['', 'X', 'O']
+        ])
+    })
 })

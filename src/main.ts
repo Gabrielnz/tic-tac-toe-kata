@@ -1,5 +1,6 @@
 export class TicTacToe {
     _board: string[][]
+    private currentPlayer: string
 
     constructor() {
         this._board = [
@@ -7,6 +8,7 @@ export class TicTacToe {
             ['', '', ''],
             ['', '', '']
         ]
+        this.currentPlayer = 'X'
     }
 
     get board(): string [][] {
@@ -14,6 +16,7 @@ export class TicTacToe {
     }
 
     play(xCoordinate: number, yCoordinate: number) {
-        this._board[xCoordinate][yCoordinate] = 'X'
+        this._board[xCoordinate][yCoordinate] = this.currentPlayer
+        this.currentPlayer = this.currentPlayer === 'X' ? 'O' : 'X'
     }
 }
