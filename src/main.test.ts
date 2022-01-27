@@ -65,6 +65,14 @@ describe('tic tac toe', () => {
 
         expect(game.getWinner()).toBe('X wins')
     })
+
+    test('X player with 3 positions in vertical line wins', () => {
+        const game = new TicTacToe()
+
+        playSoThatXHaveAVerticalLine(game)
+
+        expect(game.getWinner()).toBe('X wins')
+    })
 })
 
 function playSoThatXHaveAnHorizontalLine(game: TicTacToe) {
@@ -73,4 +81,12 @@ function playSoThatXHaveAnHorizontalLine(game: TicTacToe) {
     game.play(new Coordinates(1, 1))
     game.play(new Coordinates(2, 1))
     game.play(new Coordinates(1, 2))
+}
+
+function playSoThatXHaveAVerticalLine(game: TicTacToe) {
+    game.play(new Coordinates(0, 1))
+    game.play(new Coordinates(0, 0))
+    game.play(new Coordinates(1, 1))
+    game.play(new Coordinates(2, 2))
+    game.play(new Coordinates(2, 1))
 }
