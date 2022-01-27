@@ -12,23 +12,23 @@ export class TicTacToe {
         this.currentPlayer = Position.X
     }
 
-    getBoard(): Board {
+    public getBoard(): Board {
         return this.gameBoard
     }
 
-    play(coordinates: Coordinates): void {
+    public play(coordinates: Coordinates): void {
         this.checkIfThePositionIsValid(coordinates)
         this.gameBoard.setPosition(coordinates, this.currentPlayer)
         this.setNextPlayer()
     }
 
-    private checkIfThePositionIsValid(coordinates: Coordinates) {
+    private checkIfThePositionIsValid(coordinates: Coordinates): void {
         if (this.gameBoard.getPosition(coordinates) !== Position.Empty) {
             throw new Error('Position already played')
         }
     }
 
-    private setNextPlayer() {
+    private setNextPlayer(): void {
         this.currentPlayer = this.currentPlayer === Position.X ? Position.O : Position.X
     }
 }
@@ -40,15 +40,15 @@ export class Board {
         this.board = board
     }
 
-    setPosition(coordinates: Coordinates, position: Position) {
+    public setPosition(coordinates: Coordinates, position: Position): void {
         this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()] = position
     }
 
-    getPosition(coordinates: Coordinates): Position {
+    public getPosition(coordinates: Coordinates): Position {
         return this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()]
     }
 
-    equalsTo(otherBoard: Board): boolean {
+    public equalsTo(otherBoard: Board): boolean {
         return this.board.every((row, rowIndex) => row.every((position, columnIndex) => position === otherBoard.board[rowIndex][columnIndex]))
     }
 }
@@ -68,11 +68,11 @@ export class Coordinates {
         this.y = y
     }
 
-    getXCoordinate(): number {
+    public getXCoordinate(): number {
         return this.x
     }
 
-    getYCoordinate(): number {
+    public getYCoordinate(): number {
         return this.y
     }
 }
