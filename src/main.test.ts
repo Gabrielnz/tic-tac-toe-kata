@@ -13,17 +13,17 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        [new Coordinates(0, 0), [[Position.X, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]]],
-        [new Coordinates(2, 2), [[Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.X]]],
-        [new Coordinates(1, 0), [[Position.Empty, Position.Empty, Position.Empty], [Position.X, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]]],
-        [new Coordinates(0, 2), [[Position.Empty, Position.Empty, Position.X], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]]],
-        [new Coordinates(1, 1), [[Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.X, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]]]
-    ])('start playing with X on coordinates (%i, %i)', (coordinates: Coordinates, expectedBoard: Position[][]) => {
+        [new Coordinates(0, 0), new Board([[Position.X, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])],
+        [new Coordinates(2, 2), new Board([[Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.X]])],
+        [new Coordinates(1, 0), new Board([[Position.Empty, Position.Empty, Position.Empty], [Position.X, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])],
+        [new Coordinates(0, 2), new Board([[Position.Empty, Position.Empty, Position.X], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])],
+        [new Coordinates(1, 1), new Board([[Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.X, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])]
+    ])('start playing with X on coordinates (%i, %i)', (coordinates: Coordinates, expectedBoard: Board) => {
         const game = new TicTacToe()
 
         game.play(coordinates)
 
-        expect(game.getBoard().equalsTo(new Board(expectedBoard))).toBe(true)
+        expect(game.getBoard().equalsTo(expectedBoard)).toBe(true)
     })
 
     test('X and O play alternatively', () => {
