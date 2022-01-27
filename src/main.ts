@@ -4,9 +4,9 @@ export class TicTacToe {
 
     constructor() {
         this.board = [
-            [' ', ' ', ' '],
-            [' ', ' ', ' '],
-            [' ', ' ', ' ']
+            [Position.Empty, Position.Empty, Position.Empty],
+            [Position.Empty, Position.Empty, Position.Empty],
+            [Position.Empty, Position.Empty, Position.Empty]
         ]
         this.currentPlayer = Position.X
     }
@@ -27,5 +27,6 @@ export class TicTacToe {
 
 export enum Position {
     X = 'X',
-    O = 'O'
+    O = 'O',
+    Empty = ' '
 }
