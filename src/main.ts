@@ -1,22 +1,23 @@
 export class TicTacToe {
-    private board: string[][]
+    private gameBoard: Board
     private currentPlayer: Position
 
     constructor() {
-        this.board = [
+        const newBoard = [
             [Position.Empty, Position.Empty, Position.Empty],
             [Position.Empty, Position.Empty, Position.Empty],
             [Position.Empty, Position.Empty, Position.Empty]
         ]
+        this.gameBoard = new Board(newBoard)
         this.currentPlayer = Position.X
     }
 
-    getBoard(): string [][] {
-        return this.board
+    getBoard(): Board {
+        return this.gameBoard
     }
 
     play(xCoordinate: number, yCoordinate: number) {
-        this.board[xCoordinate][yCoordinate] = this.currentPlayer
+        this.gameBoard.setPosition(xCoordinate, yCoordinate, this.currentPlayer)
         this.setNextPlayer()
     }
 
@@ -29,4 +30,20 @@ export enum Position {
     X = 'X',
     O = 'O',
     Empty = ' '
+}
+
+export class Board {
+    private board: string[][]
+
+    constructor(board: string[][]) {
+        this.board = board
+    }
+
+    setPosition(xCoordinate: number, yCoordinate: number, position: Position) {
+        this.board[xCoordinate][yCoordinate] = position
+    }
+
+    equalsTo(otherBoard: Board): boolean {
+        return this.board.every((row, rowIndex) => row.every((position, columnIndex) => position === otherBoard.board[rowIndex][columnIndex]))
+    }
 }

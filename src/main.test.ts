@@ -1,15 +1,15 @@
-import { Position, TicTacToe } from "./main"
+import { Board, Position, TicTacToe } from "./main"
 
 describe('tic tac toe', () => {
     test('start a new game', () => {
         const game = new TicTacToe()
 
-        const expectedBoard: string[][] = [
+        const expectedBoard: Board = new Board([
             [Position.Empty, Position.Empty, Position.Empty],
             [Position.Empty, Position.Empty, Position.Empty],
             [Position.Empty, Position.Empty, Position.Empty]
-        ]
-        expect(game.getBoard()).toEqual(expectedBoard)
+        ])
+        expect(game.getBoard().equalsTo(expectedBoard)).toBe(true)
     })
 
     test.each([
@@ -23,7 +23,7 @@ describe('tic tac toe', () => {
 
         game.play(xCoordinate, yCoordinate)
 
-        expect(game.getBoard()).toEqual(expectedBoard)
+        expect(game.getBoard().equalsTo(new Board(expectedBoard))).toBe(true)
     })
 
     test('X and O play alternatively', () => {
@@ -35,10 +35,11 @@ describe('tic tac toe', () => {
         game.play(0, 2)
         game.play(2, 1)
 
-        expect(game.getBoard()).toEqual([
+        const expectedBoard: Board = new Board([
             [Position.X, Position.Empty, Position.O],
             [Position.X, Position.Empty, Position.Empty],
             [Position.Empty, Position.X, Position.O]
         ])
+        expect(game.getBoard().equalsTo(expectedBoard)).toBe(true)
     })
 })
