@@ -1,6 +1,6 @@
 export class TicTacToe {
     private board: string[][]
-    private currentPlayer: BoardPlayers
+    private currentPlayer: Position
 
     constructor() {
         this.board = [
@@ -8,7 +8,7 @@ export class TicTacToe {
             [' ', ' ', ' '],
             [' ', ' ', ' ']
         ]
-        this.currentPlayer = BoardPlayers.X
+        this.currentPlayer = Position.X
     }
 
     getBoard(): string [][] {
@@ -21,11 +21,11 @@ export class TicTacToe {
     }
 
     private setNextPlayer() {
-        this.currentPlayer = this.currentPlayer === BoardPlayers.X ? BoardPlayers.O : BoardPlayers.X
+        this.currentPlayer = this.currentPlayer === Position.X ? Position.O : Position.X
     }
 }
 
-export enum BoardPlayers {
+export enum Position {
     X = 'X',
     O = 'O'
 }
