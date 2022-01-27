@@ -5,7 +5,7 @@ describe('tic tac toe', () => {
         const game = new TicTacToe()
 
         const expectedBoard: string[][] = [['', '', ''], ['', '', ''], ['', '', '']]
-        expect(game.board).toEqual(expectedBoard)
+        expect(game.getBoard()).toEqual(expectedBoard)
     })
 
     test.each([
@@ -19,7 +19,7 @@ describe('tic tac toe', () => {
 
         game.play(xCoordinate, yCoordinate)
 
-        expect(game.board).toEqual(expectedBoard)
+        expect(game.getBoard()).toEqual(expectedBoard)
     })
 
     test('X and O play alternatively', () => {
@@ -31,7 +31,7 @@ describe('tic tac toe', () => {
         game.play(0, 2)
         game.play(2, 1)
 
-        expect(game.board).toEqual([
+        expect(game.getBoard()).toEqual([
             ['X', '', 'O'],
             ['X', '', ''],
             ['', 'X', 'O']
