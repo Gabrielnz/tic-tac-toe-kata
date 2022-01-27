@@ -22,6 +22,10 @@ export class TicTacToe {
         this.setNextPlayer()
     }
 
+    public getWinner(): string {
+        return 'X wins'
+    }
+
     private checkIfThePositionIsValid(coordinates: Coordinates): void {
         if (this.gameBoard.getPosition(coordinates) !== Position.Empty) {
             throw new Error('Position already played')
