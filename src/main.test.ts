@@ -18,7 +18,7 @@ describe('tic tac toe', () => {
         [new Coordinates(1, 0), new Board([[Position.Empty, Position.Empty, Position.Empty], [Position.X, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])],
         [new Coordinates(0, 2), new Board([[Position.Empty, Position.Empty, Position.X], [Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])],
         [new Coordinates(1, 1), new Board([[Position.Empty, Position.Empty, Position.Empty], [Position.Empty, Position.X, Position.Empty], [Position.Empty, Position.Empty, Position.Empty]])]
-    ])('start playing with X on coordinates (%i, %i)', (coordinates: Coordinates, expectedBoard: Board) => {
+    ])('start playing with X on coordinates %o', (coordinates: Coordinates, expectedBoard: Board) => {
         const game = new TicTacToe()
 
         game.play(coordinates)
@@ -49,7 +49,7 @@ describe('tic tac toe', () => {
         new Coordinates(1, 0),
         new Coordinates(0, 2),
         new Coordinates(1, 1)
-    ])('cannot play 2 times in the same position', (coordinates: Coordinates) => {
+    ])('cannot play 2 times in the same position on coordinates %o', (coordinates: Coordinates) => {
         const game = new TicTacToe()
         game.play(coordinates)
 
