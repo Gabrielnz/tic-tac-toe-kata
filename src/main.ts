@@ -33,9 +33,9 @@ export enum Position {
 }
 
 export class Board {
-    private board: string[][]
+    private board: Position[][]
 
-    constructor(board: string[][]) {
+    constructor(board: Position[][]) {
         this.board = board
     }
 
