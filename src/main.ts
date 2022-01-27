@@ -17,6 +17,9 @@ export class TicTacToe {
     }
 
     play(coordinates: Coordinates): void {
+        if (this.gameBoard.getPosition(coordinates) !== Position.Empty) {
+            throw new Error('Position already played')
+        }
         this.gameBoard.setPosition(coordinates, this.currentPlayer)
         this.setNextPlayer()
     }
@@ -35,6 +38,10 @@ export class Board {
 
     setPosition(coordinates: Coordinates, position: Position) {
         this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()] = position
+    }
+
+    getPosition(coordinates: Coordinates): Position {
+        return this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()]
     }
 
     equalsTo(otherBoard: Board): boolean {
