@@ -17,11 +17,15 @@ export class TicTacToe {
     }
 
     play(coordinates: Coordinates): void {
+        this.checkIfThePositionIsValid(coordinates)
+        this.gameBoard.setPosition(coordinates, this.currentPlayer)
+        this.setNextPlayer()
+    }
+
+    private checkIfThePositionIsValid(coordinates: Coordinates) {
         if (this.gameBoard.getPosition(coordinates) !== Position.Empty) {
             throw new Error('Position already played')
         }
-        this.gameBoard.setPosition(coordinates, this.currentPlayer)
-        this.setNextPlayer()
     }
 
     private setNextPlayer() {
