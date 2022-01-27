@@ -43,11 +43,17 @@ describe('tic tac toe', () => {
         expect(game.getBoard().equalsTo(expectedBoard)).toBe(true)
     })
 
-    test('cannot play 2 times in the same position', () => {
+    test.each([
+        new Coordinates(0, 0),
+        new Coordinates(2, 2),
+        new Coordinates(1, 0),
+        new Coordinates(0, 2),
+        new Coordinates(1, 1)
+    ])('cannot play 2 times in the same position', (coordinates: Coordinates) => {
         const game = new TicTacToe()
-        game.play(new Coordinates(0, 0))
+        game.play(coordinates)
 
-        const action = () => game.play(new Coordinates(0, 0))
+        const action = () => game.play(coordinates)
 
         expect(action).toThrowError('Position already played')
     })
