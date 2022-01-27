@@ -23,7 +23,10 @@ export class TicTacToe {
     }
 
     public getWinner(): string {
-        return 'X wins'
+        if (this.gameBoard.positionHasALine(Position.X)) {
+            return 'X wins'
+        }
+        throw new Error('There is no winner yet')
     }
 
     private checkIfThePositionIsValid(coordinates: Coordinates): void {
@@ -50,6 +53,31 @@ export class Board {
 
     public getPosition(coordinates: Coordinates): Position {
         return this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()]
+    }
+
+    public positionHasALine(position: Position): boolean {
+        return this.positionHasHorizontalLine(position) || this.positionHasVerticalLine(position) || this.positionHasDiagonalLine(position)
+    }
+
+    private positionHasHorizontalLine(position: Position): boolean {
+        if (this.board[0][0] === position && this.board[0][1] === position && this.board[0][2] === position) {
+            return true
+        }
+        return false
+    }
+
+    private positionHasVerticalLine(position: Position): boolean {
+        if (this.board[0][0] === position && this.board[1][0] === position && this.board[2][0] === position) {
+            return true
+        }
+        return false
+    }
+
+    private positionHasDiagonalLine(position: Position): boolean {
+        if (this.board[0][0] === position && this.board[1][1] === position && this.board[2][2] === position) {
+            return true
+        }
+        return false
     }
 
     public equalsTo(otherBoard: Board): boolean {

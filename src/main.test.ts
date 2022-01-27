@@ -96,19 +96,19 @@ describe('tic tac toe', () => {
 })
 
 function playSoThatXHaveAnHorizontalLine(game: TicTacToe) {
-    game.play(new Coordinates(1, 0))
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(1, 1))
+    game.play(new Coordinates(0, 1))
     game.play(new Coordinates(2, 1))
-    game.play(new Coordinates(1, 2))
+    game.play(new Coordinates(0, 2))
 }
 
 function playSoThatXHaveAVerticalLine(game: TicTacToe) {
-    game.play(new Coordinates(0, 1))
     game.play(new Coordinates(0, 0))
-    game.play(new Coordinates(1, 1))
+    game.play(new Coordinates(1, 2))
+    game.play(new Coordinates(1, 0))
     game.play(new Coordinates(2, 2))
-    game.play(new Coordinates(2, 1))
+    game.play(new Coordinates(2, 0))
 }
 
 function playSoThatXHaveADiagonalLine(game: TicTacToe) {
