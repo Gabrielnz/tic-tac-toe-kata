@@ -26,12 +26,6 @@ export class TicTacToe {
     }
 }
 
-export enum Position {
-    X = 'X',
-    O = 'O',
-    Empty = ' '
-}
-
 export class Board {
     private board: Position[][]
 
@@ -46,4 +40,10 @@ export class Board {
     equalsTo(otherBoard: Board): boolean {
         return this.board.every((row, rowIndex) => row.every((position, columnIndex) => position === otherBoard.board[rowIndex][columnIndex]))
     }
+}
+
+export enum Position {
+    X = 'X',
+    O = 'O',
+    Empty = ' '
 }
