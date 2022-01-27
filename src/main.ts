@@ -4,9 +4,9 @@ export class TicTacToe {
 
     constructor() {
         this.board = [
-            ['', '', ''],
-            ['', '', ''],
-            ['', '', '']
+            [' ', ' ', ' '],
+            [' ', ' ', ' '],
+            [' ', ' ', ' ']
         ]
         this.currentPlayer = 'X'
     }

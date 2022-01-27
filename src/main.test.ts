@@ -4,16 +4,20 @@ describe('tic tac toe', () => {
     test('start a new game', () => {
         const game = new TicTacToe()
 
-        const expectedBoard: string[][] = [['', '', ''], ['', '', ''], ['', '', '']]
+        const expectedBoard: string[][] = [
+            [' ', ' ', ' '],
+            [' ', ' ', ' '],
+            [' ', ' ', ' ']
+        ]
         expect(game.getBoard()).toEqual(expectedBoard)
     })
 
     test.each([
-        [0, 0, [['X', '', ''], ['', '', ''], ['', '', '']]],
-        [2, 2, [['', '', ''], ['', '', ''], ['', '', 'X']]],
-        [1, 0, [['', '', ''], ['X', '', ''], ['', '', '']]],
-        [0, 2, [['', '', 'X'], ['', '', ''], ['', '', '']]],
-        [1, 1, [['', '', ''], ['', 'X', ''], ['', '', '']]]
+        [0, 0, [['X', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]],
+        [2, 2, [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', 'X']]],
+        [1, 0, [[' ', ' ', ' '], ['X', ' ', ' '], [' ', ' ', ' ']]],
+        [0, 2, [[' ', ' ', 'X'], [' ', ' ', ' '], [' ', ' ', ' ']]],
+        [1, 1, [[' ', ' ', ' '], [' ', 'X', ' '], [' ', ' ', ' ']]]
     ])('start playing with X on coordinates (%i, %i)', (xCoordinate: number, yCoordinate: number, expectedBoard: string[][]) => {
         const game = new TicTacToe()
 
@@ -32,9 +36,9 @@ describe('tic tac toe', () => {
         game.play(2, 1)
 
         expect(game.getBoard()).toEqual([
-            ['X', '', 'O'],
-            ['X', '', ''],
-            ['', 'X', 'O']
+            ['X', ' ', 'O'],
+            ['X', ' ', ' '],
+            [' ', 'X', 'O']
         ])
     })
 })
