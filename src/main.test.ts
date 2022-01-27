@@ -26,7 +26,7 @@ describe('tic tac toe', () => {
         expect(game.getBoard().equalsTo(expectedBoard)).toBe(true)
     })
 
-    test('X and O play alternatively', () => {
+    test('play with X and O alternatively', () => {
         const game = new TicTacToe()
 
         game.play(new Coordinates(0, 0))
