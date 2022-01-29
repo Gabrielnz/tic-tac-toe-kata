@@ -75,9 +75,9 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        playSoThatXHasFirstVerticalLine,
-        playSoThatXHasSecondVerticalLine,
-        playSoThatXHasThirdVerticalLine
+        playForFirstVerticalLine,
+        playForSecondVerticalLine,
+        playForThirdVerticalLine
     ])('X player with 3 positions in vertical line wins', (play: Function) => {
         const game = new TicTacToe()
 
@@ -87,8 +87,8 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        playSoThatXHasFirstDiagonalLine,
-        playSoThatXHasSecondDiagonalLine
+        playForFirstDiagonalLine,
+        playForSecondDiagonalLine
     ])('X player with 3 positions in diagonal line wins', (play: Function) => {
         const game = new TicTacToe()
 
@@ -149,7 +149,7 @@ function playForThirdHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatXHasFirstVerticalLine(game: TicTacToe): void {
+function playForFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(1, 2))
     game.play(new Coordinates(1, 0))
@@ -157,7 +157,7 @@ function playSoThatXHasFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 0))
 }
 
-function playSoThatXHasSecondVerticalLine(game: TicTacToe): void {
+function playForSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 1))
     game.play(new Coordinates(1, 2))
     game.play(new Coordinates(1, 1))
@@ -165,7 +165,7 @@ function playSoThatXHasSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 1))
 }
 
-function playSoThatXHasThirdVerticalLine(game: TicTacToe): void {
+function playForThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(1, 2))
@@ -173,7 +173,7 @@ function playSoThatXHasThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatXHasFirstDiagonalLine(game: TicTacToe): void {
+function playForFirstDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(1, 1))
@@ -181,7 +181,7 @@ function playSoThatXHasFirstDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatXHasSecondDiagonalLine(game: TicTacToe): void {
+function playForSecondDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(1, 0))
     game.play(new Coordinates(1, 1))
