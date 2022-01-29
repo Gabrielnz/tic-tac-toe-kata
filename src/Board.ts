@@ -23,7 +23,7 @@ export class Board {
         return this.board.some(row => row.every(p => p === player))
     }
 
-    private playerHasVerticalLine(player: Player): boolean {
+    public playerHasVerticalLine(player: Player): boolean {
         const columns = [0, 1, 2]
         return columns.some(columnIndex => this.board[0][columnIndex] === player && this.board[1][columnIndex] === player && this.board[2][columnIndex] === player)
     }

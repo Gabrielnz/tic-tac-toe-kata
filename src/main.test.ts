@@ -75,15 +75,18 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        playForFirstVerticalLine,
-        playForSecondVerticalLine,
-        playForThirdVerticalLine
-    ])('X player with 3 positions in vertical line wins', (play: Function) => {
+        [Player.X, playForFirstVerticalLine],
+        [Player.X, playForSecondVerticalLine],
+        [Player.X, playForThirdVerticalLine],
+        [Player.O, playSoThatYHasFirstVerticalLine],
+        [Player.O, playSoThatYHasSecondVerticalLine],
+        [Player.O, playSoThatYHasThirdVerticalLine]
+    ])('%s player with 3 positions in vertical line wins', (player: Player, play: Function) => {
         const game = new TicTacToe()
 
         play(game)
 
-        expect(game.getWinner()).toBe('X wins')
+        expect(game.getWinner()).toBe(`${player} wins`)
     })
 
     test.each([
@@ -157,6 +160,11 @@ function playForFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 0))
 }
 
+function playSoThatYHasFirstVerticalLine(game: TicTacToe): void {
+    game.play(new Coordinates(2, 1))
+    playForFirstVerticalLine(game)
+}
+
 function playForSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 1))
     game.play(new Coordinates(1, 2))
@@ -165,12 +173,22 @@ function playForSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 1))
 }
 
+function playSoThatYHasSecondVerticalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 0))
+    playForSecondVerticalLine(game)
+}
+
 function playForThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(1, 2))
     game.play(new Coordinates(2, 1))
     game.play(new Coordinates(2, 2))
+}
+
+function playSoThatYHasThirdVerticalLine(game: TicTacToe): void {
+    game.play(new Coordinates(1, 1))
+    playForThirdVerticalLine(game)
 }
 
 function playForFirstDiagonalLine(game: TicTacToe): void {
