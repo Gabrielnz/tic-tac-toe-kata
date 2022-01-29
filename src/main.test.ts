@@ -90,14 +90,16 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        playForFirstDiagonalLine,
-        playForSecondDiagonalLine
-    ])('X player with 3 positions in diagonal line wins', (play: Function) => {
+        [Player.X, playForFirstDiagonalLine],
+        [Player.X, playForSecondDiagonalLine],
+        [Player.O, playForSecondPlayerFirstDiagonalLine],
+        [Player.O, playForSecondPlayerSecondDiagonalLine]
+    ])('%s player with 3 positions in diagonal line wins', (player: Player, play: Function) => {
         const game = new TicTacToe()
 
         play(game)
 
-        expect(game.getWinner()).toBe('X wins')
+        expect(game.getWinner()).toBe(`${player} wins`)
     })
 
     test('cannot get a winner when there is no winner yet', () => {
@@ -199,10 +201,20 @@ function playForFirstDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
+function playForSecondPlayerFirstDiagonalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 1))
+    playForFirstDiagonalLine(game)
+}
+
 function playForSecondDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(1, 0))
     game.play(new Coordinates(1, 1))
     game.play(new Coordinates(2, 1))
     game.play(new Coordinates(2, 0))
+}
+
+function playForSecondPlayerSecondDiagonalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 1))
+    playForSecondDiagonalLine(game)
 }
