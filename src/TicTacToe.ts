@@ -3,16 +3,16 @@ import { Board } from "./Board";
 
 export class TicTacToe {
     private gameBoard: Board;
-    private currentPlayer: Position;
+    private currentPlayer: Player;
 
     constructor() {
         const newBoard = [
-            [Position.Empty, Position.Empty, Position.Empty],
-            [Position.Empty, Position.Empty, Position.Empty],
-            [Position.Empty, Position.Empty, Position.Empty]
+            [Player.Empty, Player.Empty, Player.Empty],
+            [Player.Empty, Player.Empty, Player.Empty],
+            [Player.Empty, Player.Empty, Player.Empty]
         ];
         this.gameBoard = new Board(newBoard);
-        this.currentPlayer = Position.X;
+        this.currentPlayer = Player.X;
     }
 
     public getBoard(): Board {
@@ -26,24 +26,24 @@ export class TicTacToe {
     }
 
     public getWinner(): string {
-        if (this.gameBoard.positionHasALine(Position.X)) {
+        if (this.gameBoard.positionHasALine(Player.X)) {
             return 'X wins';
         }
         throw new Error('There is no winner yet');
     }
 
     private checkIfThePositionIsValid(coordinates: Coordinates): void {
-        if (this.gameBoard.getPosition(coordinates) !== Position.Empty) {
+        if (this.gameBoard.getPosition(coordinates) !== Player.Empty) {
             throw new Error('Position already played');
         }
     }
 
     private setNextPlayer(): void {
-        this.currentPlayer = this.currentPlayer === Position.X ? Position.O : Position.X;
+        this.currentPlayer = this.currentPlayer === Player.X ? Player.O : Player.X;
     }
 }
 
-export enum Position {
+export enum Player {
     X = 'X',
     O = 'O',
     Empty = ' '

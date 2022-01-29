@@ -1,38 +1,38 @@
-import { Position, Coordinates } from "./TicTacToe";
+import { Player, Coordinates } from "./TicTacToe";
 
 export class Board {
-    private board: Position[][];
+    private board: Player[][];
 
-    constructor(board: Position[][]) {
+    constructor(board: Player[][]) {
         this.board = board;
     }
 
-    public setPosition(coordinates: Coordinates, position: Position): void {
-        this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()] = position;
+    public setPosition(coordinates: Coordinates, player: Player): void {
+        this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()] = player;
     }
 
-    public getPosition(coordinates: Coordinates): Position {
+    public getPosition(coordinates: Coordinates): Player {
         return this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()];
     }
 
-    public positionHasALine(position: Position): boolean {
-        return this.positionHasHorizontalLine(position) || this.positionHasVerticalLine(position) || this.positionHasDiagonalLine(position);
+    public positionHasALine(player: Player): boolean {
+        return this.positionHasHorizontalLine(player) || this.positionHasVerticalLine(player) || this.positionHasDiagonalLine(player);
     }
 
-    private positionHasHorizontalLine(position: Position): boolean {
-        return this.board.some(row => row.every(p => p === position))
+    private positionHasHorizontalLine(player: Player): boolean {
+        return this.board.some(row => row.every(p => p === player))
     }
 
-    private positionHasVerticalLine(position: Position): boolean {
+    private positionHasVerticalLine(player: Player): boolean {
         const columns = [0, 1, 2]
-        return columns.some(columnIndex => this.board[0][columnIndex] === position && this.board[1][columnIndex] === position && this.board[2][columnIndex] === position)
+        return columns.some(columnIndex => this.board[0][columnIndex] === player && this.board[1][columnIndex] === player && this.board[2][columnIndex] === player)
     }
 
-    private positionHasDiagonalLine(position: Position): boolean {
-        if (this.board[0][0] === position && this.board[1][1] === position && this.board[2][2] === position) {
+    private positionHasDiagonalLine(player: Player): boolean {
+        if (this.board[0][0] === player && this.board[1][1] === player && this.board[2][2] === player) {
             return true;
         }
-        if (this.board[0][2] === position && this.board[1][1] === position && this.board[2][0] === position) {
+        if (this.board[0][2] === player && this.board[1][1] === player && this.board[2][0] === player) {
             return true;
         }
         return false;
