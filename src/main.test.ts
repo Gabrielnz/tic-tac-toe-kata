@@ -71,10 +71,14 @@ describe('tic tac toe', () => {
         expect(game.getWinner()).toBe('X wins')
     })
 
-    test('X player with 3 positions in vertical line wins', () => {
+    test.each([
+        playSoThatXHasFirstVerticalLine,
+        playSoThatXHasSecondVerticalLine,
+        playSoThatXHasThirdVerticalLine
+    ])('X player with 3 positions in vertical line wins', (play: Function) => {
         const game = new TicTacToe()
 
-        playSoThatXHaveAVerticalLine(game)
+        play(game)
 
         expect(game.getWinner()).toBe('X wins')
     })
@@ -124,12 +128,28 @@ function playSoThatXHasThirdHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatXHaveAVerticalLine(game: TicTacToe): void {
+function playSoThatXHasFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(1, 2))
     game.play(new Coordinates(1, 0))
     game.play(new Coordinates(2, 2))
     game.play(new Coordinates(2, 0))
+}
+
+function playSoThatXHasSecondVerticalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 1))
+    game.play(new Coordinates(1, 2))
+    game.play(new Coordinates(1, 1))
+    game.play(new Coordinates(2, 2))
+    game.play(new Coordinates(2, 1))
+}
+
+function playSoThatXHasThirdVerticalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 2))
+    game.play(new Coordinates(0, 0))
+    game.play(new Coordinates(1, 2))
+    game.play(new Coordinates(2, 1))
+    game.play(new Coordinates(2, 2))
 }
 
 function playSoThatXHaveADiagonalLine(game: TicTacToe): void {
