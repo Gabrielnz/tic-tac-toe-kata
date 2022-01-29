@@ -60,9 +60,9 @@ describe('tic tac toe', () => {
     })
 
     test.each([
-        [Player.X, playSoThatXHasFirstHorizontalLine],
-        [Player.X, playSoThatXHasSecondHorizontalLine],
-        [Player.X, playSoThatXHasThirdHorizontalLine],
+        [Player.X, playForFirstHorizontalLine],
+        [Player.X, playForFirstHorizontalLine],
+        [Player.X, playForFirstHorizontalLine],
         [Player.O, playSoThatYHasFirstHorizontalLine],
         [Player.O, playSoThatYHasSecondHorizontalLine],
         [Player.O, playSoThatYHasThirdHorizontalLine]
@@ -110,10 +110,6 @@ describe('tic tac toe', () => {
     })
 })
 
-function playSoThatXHasFirstHorizontalLine(game: TicTacToe): void {
-    playForFirstHorizontalLine(game)
-}
-
 function playSoThatYHasFirstHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
     playForFirstHorizontalLine(game)
@@ -127,10 +123,6 @@ function playForFirstHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
 }
 
-function playSoThatXHasSecondHorizontalLine(game: TicTacToe): void {
-    playForSecondHorizontalLine(game)
-}
-
 function playSoThatYHasSecondHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     playForSecondHorizontalLine(game)
@@ -142,10 +134,6 @@ function playForSecondHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(1, 1))
     game.play(new Coordinates(2, 1))
     game.play(new Coordinates(1, 2))
-}
-
-function playSoThatXHasThirdHorizontalLine(game: TicTacToe): void {
-    playForThirdHorizontalLine(game)
 }
 
 function playSoThatYHasThirdHorizontalLine(game: TicTacToe): void {
