@@ -1,4 +1,5 @@
-import { Board, Coordinates, Position, TicTacToe } from "./main"
+import { Coordinates, Position, TicTacToe } from "./TicTacToe"
+import { Board } from "./Board"
 
 describe('tic tac toe', () => {
     test('start a new game', () => {
