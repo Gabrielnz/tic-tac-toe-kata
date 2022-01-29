@@ -26,7 +26,7 @@ export class TicTacToe {
     }
 
     public getWinner(): string {
-        if (this.gameBoard.positionHasALine(Player.X)) {
+        if (this.gameBoard.playerHasALine(Player.X)) {
             return 'X wins';
         }
         throw new Error('There is no winner yet');

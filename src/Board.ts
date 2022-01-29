@@ -15,20 +15,20 @@ export class Board {
         return this.board[coordinates.getXCoordinate()][coordinates.getYCoordinate()];
     }
 
-    public positionHasALine(player: Player): boolean {
-        return this.positionHasHorizontalLine(player) || this.positionHasVerticalLine(player) || this.positionHasDiagonalLine(player);
+    public playerHasALine(player: Player): boolean {
+        return this.PlayerHasHorizontalLine(player) || this.playerHasVerticalLine(player) || this.playerHasDiagonalLine(player);
     }
 
-    private positionHasHorizontalLine(player: Player): boolean {
+    private PlayerHasHorizontalLine(player: Player): boolean {
         return this.board.some(row => row.every(p => p === player))
     }
 
-    private positionHasVerticalLine(player: Player): boolean {
+    private playerHasVerticalLine(player: Player): boolean {
         const columns = [0, 1, 2]
         return columns.some(columnIndex => this.board[0][columnIndex] === player && this.board[1][columnIndex] === player && this.board[2][columnIndex] === player)
     }
 
-    private positionHasDiagonalLine(player: Player): boolean {
+    private playerHasDiagonalLine(player: Player): boolean {
         if (this.board[0][0] === player && this.board[1][1] === player && this.board[2][2] === player) {
             return true;
         }
