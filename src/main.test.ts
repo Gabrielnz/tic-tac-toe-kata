@@ -86,7 +86,7 @@ describe('tic tac toe', () => {
     test('X player with 3 positions in diagonal line wins', () => {
         const game = new TicTacToe()
 
-        playSoThatXHaveADiagonalLine(game)
+        playSoThatXHasFirstDiagonalLine(game)
 
         expect(game.getWinner()).toBe('X wins')
     })
@@ -152,7 +152,7 @@ function playSoThatXHasThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatXHaveADiagonalLine(game: TicTacToe): void {
+function playSoThatXHasFirstDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(1, 1))
