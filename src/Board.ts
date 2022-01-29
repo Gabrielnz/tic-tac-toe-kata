@@ -19,7 +19,7 @@ export class Board {
         return this.PlayerHasHorizontalLine(player) || this.playerHasVerticalLine(player) || this.playerHasDiagonalLine(player);
     }
 
-    private PlayerHasHorizontalLine(player: Player): boolean {
+    public PlayerHasHorizontalLine(player: Player): boolean {
         return this.board.some(row => row.every(p => p === player))
     }
 

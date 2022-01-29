@@ -29,6 +29,9 @@ export class TicTacToe {
         if (this.gameBoard.playerHasALine(Player.X)) {
             return 'X wins';
         }
+        if (this.gameBoard.PlayerHasHorizontalLine(Player.O)) {
+            return 'O wins';
+        }
         throw new Error('There is no winner yet');
     }
 
