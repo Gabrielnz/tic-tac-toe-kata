@@ -32,6 +32,9 @@ export class TicTacToe {
         if (this.gameBoard.playerHasALine(Player.O)) {
             return `${Player.O} wins`;
         }
+        if (this.gameBoard.allPositionsAreFilled()) {
+            return 'Tie';
+        }
         throw new Error('There is no winner yet');
     }
 

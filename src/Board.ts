@@ -19,6 +19,10 @@ export class Board {
         return this.PlayerHasHorizontalLine(player) || this.playerHasVerticalLine(player) || this.playerHasDiagonalLine(player);
     }
 
+    public allPositionsAreFilled(): boolean {
+        return this.board.every(row => row.every(position => position !== Player.Empty))
+    }
+
     private PlayerHasHorizontalLine(player: Player): boolean {
         return this.board.some(row => row.every(p => p === player))
     }
