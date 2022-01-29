@@ -63,9 +63,9 @@ describe('tic tac toe', () => {
         [Player.X, playForFirstHorizontalLine],
         [Player.X, playForFirstHorizontalLine],
         [Player.X, playForFirstHorizontalLine],
-        [Player.O, playSoThatYHasFirstHorizontalLine],
-        [Player.O, playSoThatYHasSecondHorizontalLine],
-        [Player.O, playSoThatYHasThirdHorizontalLine]
+        [Player.O, playForSecondPlayerFirstHorizontalLine],
+        [Player.O, playForSecondPlayerSecondHorizontalLine],
+        [Player.O, playForSecondPlayerThirdHorizontalLine]
     ])('%s player with 3 positions in horizontal line wins', (player: Player, play: Function) => {
         const game = new TicTacToe()
 
@@ -78,9 +78,9 @@ describe('tic tac toe', () => {
         [Player.X, playForFirstVerticalLine],
         [Player.X, playForSecondVerticalLine],
         [Player.X, playForThirdVerticalLine],
-        [Player.O, playSoThatYHasFirstVerticalLine],
-        [Player.O, playSoThatYHasSecondVerticalLine],
-        [Player.O, playSoThatYHasThirdVerticalLine]
+        [Player.O, playForSecondPlayerFirstVerticalLine],
+        [Player.O, playForSecondPlayerSecondVerticalLine],
+        [Player.O, playForSecondPlayerThirdVerticalLine]
     ])('%s player with 3 positions in vertical line wins', (player: Player, play: Function) => {
         const game = new TicTacToe()
 
@@ -113,7 +113,7 @@ describe('tic tac toe', () => {
     })
 })
 
-function playSoThatYHasFirstHorizontalLine(game: TicTacToe): void {
+function playForSecondPlayerFirstHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
     playForFirstHorizontalLine(game)
 }
@@ -126,7 +126,7 @@ function playForFirstHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 2))
 }
 
-function playSoThatYHasSecondHorizontalLine(game: TicTacToe): void {
+function playForSecondPlayerSecondHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     playForSecondHorizontalLine(game)
 }
@@ -139,7 +139,7 @@ function playForSecondHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(1, 2))
 }
 
-function playSoThatYHasThirdHorizontalLine(game: TicTacToe): void {
+function playForSecondPlayerThirdHorizontalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     playForThirdHorizontalLine(game)
 }
@@ -160,7 +160,7 @@ function playForFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 0))
 }
 
-function playSoThatYHasFirstVerticalLine(game: TicTacToe): void {
+function playForSecondPlayerFirstVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 1))
     playForFirstVerticalLine(game)
 }
@@ -173,7 +173,7 @@ function playForSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 1))
 }
 
-function playSoThatYHasSecondVerticalLine(game: TicTacToe): void {
+function playForSecondPlayerSecondVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(0, 0))
     playForSecondVerticalLine(game)
 }
@@ -186,7 +186,7 @@ function playForThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(2, 2))
 }
 
-function playSoThatYHasThirdVerticalLine(game: TicTacToe): void {
+function playForSecondPlayerThirdVerticalLine(game: TicTacToe): void {
     game.play(new Coordinates(1, 1))
     playForThirdVerticalLine(game)
 }
