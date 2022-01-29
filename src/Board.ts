@@ -24,16 +24,8 @@ export class Board {
     }
 
     private positionHasVerticalLine(position: Position): boolean {
-        if (this.board[0][0] === position && this.board[1][0] === position && this.board[2][0] === position) {
-            return true;
-        }
-        if (this.board[0][1] === position && this.board[1][1] === position && this.board[2][1] === position) {
-            return true;
-        }
-        if (this.board[0][2] === position && this.board[1][2] === position && this.board[2][2] === position) {
-            return true;
-        }
-        return false;
+        const columns = [0, 1, 2]
+        return columns.some(columnIndex => this.board[0][columnIndex] === position && this.board[1][columnIndex] === position && this.board[2][columnIndex] === position)
     }
 
     private positionHasDiagonalLine(position: Position): boolean {
