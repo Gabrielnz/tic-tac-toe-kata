@@ -83,10 +83,13 @@ describe('tic tac toe', () => {
         expect(game.getWinner()).toBe('X wins')
     })
 
-    test('X player with 3 positions in diagonal line wins', () => {
+    test.each([
+        playSoThatXHasFirstDiagonalLine,
+        playSoThatXHasSecondDiagonalLine
+    ])('X player with 3 positions in diagonal line wins', (play: Function) => {
         const game = new TicTacToe()
 
-        playSoThatXHasFirstDiagonalLine(game)
+        play(game)
 
         expect(game.getWinner()).toBe('X wins')
     })
@@ -158,4 +161,12 @@ function playSoThatXHasFirstDiagonalLine(game: TicTacToe): void {
     game.play(new Coordinates(1, 1))
     game.play(new Coordinates(1, 0))
     game.play(new Coordinates(2, 2))
+}
+
+function playSoThatXHasSecondDiagonalLine(game: TicTacToe): void {
+    game.play(new Coordinates(0, 2))
+    game.play(new Coordinates(1, 0))
+    game.play(new Coordinates(1, 1))
+    game.play(new Coordinates(2, 1))
+    game.play(new Coordinates(2, 0))
 }

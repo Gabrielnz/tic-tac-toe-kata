@@ -32,6 +32,9 @@ export class Board {
         if (this.board[0][0] === position && this.board[1][1] === position && this.board[2][2] === position) {
             return true;
         }
+        if (this.board[0][2] === position && this.board[1][1] === position && this.board[2][0] === position) {
+            return true;
+        }
         return false;
     }
 
