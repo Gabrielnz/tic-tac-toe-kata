@@ -1,4 +1,4 @@
-import { Player } from "./Player"
+import { Player } from './Player'
 import { Coordinates } from './Coordinates'
 
 export class Board {
