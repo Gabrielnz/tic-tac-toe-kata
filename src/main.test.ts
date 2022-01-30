@@ -1,4 +1,6 @@
-import { Coordinates, Player, TicTacToe } from './TicTacToe'
+import { TicTacToe } from './TicTacToe'
+import { Player } from "./Player"
+import { Coordinates } from './Coordinates'
 import { Board } from './Board'
 
 describe('tic tac toe', () => {

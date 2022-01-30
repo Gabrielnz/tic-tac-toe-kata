@@ -1,4 +1,6 @@
 import { Board } from './Board'
+import { Coordinates } from './Coordinates'
+import { Player } from './Player'
 
 export class TicTacToe {
   private readonly gameBoard: Board
@@ -45,29 +47,5 @@ export class TicTacToe {
 
   private setNextPlayer (): void {
     this.currentPlayer = this.currentPlayer === Player.X ? Player.O : Player.X
-  }
-}
-
-export enum Player {
-  X = 'X',
-  O = 'O',
-  Empty = ' '
-}
-
-export class Coordinates {
-  private readonly x: number
-  private readonly y: number
-
-  constructor (x: number, y: number) {
-    this.x = x
-    this.y = y
-  }
-
-  public getXCoordinate (): number {
-    return this.x
-  }
-
-  public getYCoordinate (): number {
-    return this.y
   }
 }
