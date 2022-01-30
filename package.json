@@ -4,7 +4,7 @@
   "description": "the goal of this kata is to practice the 10 rules of object calisthenics",
   "scripts": {
     "lint": "ts-standard --fix",
-    "test": "jest --watch"
+    "test": "ts-standard && jest --watch"
   },
   "repository": {
     "type": "git",
