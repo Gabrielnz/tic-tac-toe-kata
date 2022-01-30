@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "the goal of this kata is to practice the 10 rules of object calisthenics",
   "scripts": {
+    "lint": "ts-standard --fix",
     "test": "jest --watch"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "@babel/preset-env": "^7.16.11",
     "babel-jest": "^27.4.6",
     "jest": "^27.4.7",
+    "ts-standard": "^11.0.0",
     "typescript": "^4.5.5"
   },
   "dependencies": {
