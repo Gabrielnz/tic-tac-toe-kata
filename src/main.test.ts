@@ -52,11 +52,10 @@ describe('tic tac toe', () => {
     new Coordinates(1, 1)
   ])('cannot play 2 times in the same position on coordinates %o', (coordinates: Coordinates) => {
     const game = new TicTacToe()
+
     game.play(coordinates)
 
-    const action = () => game.play(coordinates)
-
-    expect(action).toThrowError('Position already played')
+    expect(() => game.play(coordinates)).toThrowError('Position already played')
   })
 
   test.each([
@@ -104,14 +103,14 @@ describe('tic tac toe', () => {
 
   test('cannot get a winner when there is no winner yet', () => {
     const game = new TicTacToe()
+
     game.play(new Coordinates(0, 0))
     game.play(new Coordinates(2, 2))
     game.play(new Coordinates(1, 0))
     game.play(new Coordinates(0, 2))
     game.play(new Coordinates(2, 1))
 
-    const action = () => game.getWinner()
-    expect(action).toThrowError('There is no winner yet')
+    expect(() => game.getWinner()).toThrowError('There is no winner yet')
   })
 
   test('game ends with tie when all positions are played and there is no player with a line', () => {
