@@ -27,16 +27,24 @@ export class TicTacToe {
   }
 
   public getWinner (): string {
+    if (this.isThereAWinner()) {
+      return this.getWinnerText()
+    }
+    throw new Error('There is no winner yet')
+  }
+
+  private isThereAWinner (): boolean {
+    return this.gameBoard.playerHasALine(Player.X) || this.gameBoard.playerHasALine(Player.O) || this.gameBoard.allPositionsAreFilled()
+  }
+
+  private getWinnerText (): string {
     if (this.gameBoard.playerHasALine(Player.X)) {
       return `${Player.X} wins`
     }
     if (this.gameBoard.playerHasALine(Player.O)) {
       return `${Player.O} wins`
     }
-    if (this.gameBoard.allPositionsAreFilled()) {
-      return 'Tie'
-    }
-    throw new Error('There is no winner yet')
+    return 'Tie'
   }
 
   private checkIfThePositionIsValid (coordinates: Coordinates): void {
