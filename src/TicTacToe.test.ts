@@ -32,11 +32,7 @@ describe('tic tac toe', () => {
   test('play with X and O alternatively', () => {
     const game = new TicTacToe()
 
-    game.play(new Coordinates(0, 0))
-    game.play(new Coordinates(2, 2))
-    game.play(new Coordinates(1, 0))
-    game.play(new Coordinates(0, 2))
-    game.play(new Coordinates(2, 1))
+    playAnyMoves(game)
 
     const expectedBoard: Board = new Board([
       [Player.X, Player.Empty, Player.O],
@@ -106,11 +102,7 @@ describe('tic tac toe', () => {
   test('cannot get a winner when there is no winner yet', () => {
     const game = new TicTacToe()
 
-    game.play(new Coordinates(0, 0))
-    game.play(new Coordinates(2, 2))
-    game.play(new Coordinates(1, 0))
-    game.play(new Coordinates(0, 2))
-    game.play(new Coordinates(2, 1))
+    playAnyMoves(game)
 
     expect(() => game.getWinner()).toThrowError('There is no winner yet')
   })
@@ -131,6 +123,14 @@ describe('tic tac toe', () => {
     expect(game.getWinner()).toBe('Tie')
   })
 })
+
+function playAnyMoves(game: TicTacToe) {
+  game.play(new Coordinates(0, 0))
+  game.play(new Coordinates(2, 2))
+  game.play(new Coordinates(1, 0))
+  game.play(new Coordinates(0, 2))
+  game.play(new Coordinates(2, 1))
+}
 
 function playForSecondPlayerFirstHorizontalLine (game: TicTacToe): void {
   game.play(new Coordinates(2, 2))
