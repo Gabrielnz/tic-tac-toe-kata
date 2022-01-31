@@ -110,19 +110,23 @@ describe('tic tac toe', () => {
   test('game ends with tie when all positions are played and there is no player with a line', () => {
     const game = new TicTacToe()
 
-    game.play(new Coordinates(0, 0))
-    game.play(new Coordinates(0, 2))
-    game.play(new Coordinates(0, 1))
-    game.play(new Coordinates(1, 0))
-    game.play(new Coordinates(1, 2))
-    game.play(new Coordinates(1, 1))
-    game.play(new Coordinates(2, 0))
-    game.play(new Coordinates(2, 1))
-    game.play(new Coordinates(2, 2))
+    playToFillTheBoard(game)
 
     expect(game.getWinner()).toBe('Tie')
   })
 })
+
+function playToFillTheBoard(game: TicTacToe) {
+  game.play(new Coordinates(0, 0))
+  game.play(new Coordinates(0, 2))
+  game.play(new Coordinates(0, 1))
+  game.play(new Coordinates(1, 0))
+  game.play(new Coordinates(1, 2))
+  game.play(new Coordinates(1, 1))
+  game.play(new Coordinates(2, 0))
+  game.play(new Coordinates(2, 1))
+  game.play(new Coordinates(2, 2))
+}
 
 function playAnyMoves(game: TicTacToe) {
   game.play(new Coordinates(0, 0))
