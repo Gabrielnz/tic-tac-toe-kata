@@ -32,7 +32,7 @@ describe('tic tac toe', () => {
   test('play with X and O alternatively', () => {
     const game = new TicTacToe()
 
-    playAnyMoves(game)
+    playSomeMoves(game)
 
     const expectedBoard: Board = new Board([
       [Player.X, Player.Empty, Player.O],
@@ -102,7 +102,7 @@ describe('tic tac toe', () => {
   test('cannot get a winner when there is no winner yet', () => {
     const game = new TicTacToe()
 
-    playAnyMoves(game)
+    playSomeMoves(game)
 
     expect(() => game.getWinner()).toThrowError('There is no winner yet')
   })
@@ -128,7 +128,7 @@ function playToFillTheBoard(game: TicTacToe) {
   game.play(new Coordinates(2, 2))
 }
 
-function playAnyMoves(game: TicTacToe) {
+function playSomeMoves(game: TicTacToe) {
   game.play(new Coordinates(0, 0))
   game.play(new Coordinates(2, 2))
   game.play(new Coordinates(1, 0))
