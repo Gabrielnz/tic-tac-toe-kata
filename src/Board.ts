@@ -4,7 +4,11 @@ import { Coordinates } from './Coordinates'
 export class Board {
   private readonly board: Player[][]
 
-  constructor (board: Player[][]) {
+  constructor (board: Player[][] = [
+    [Player.Empty, Player.Empty, Player.Empty],
+    [Player.Empty, Player.Empty, Player.Empty],
+    [Player.Empty, Player.Empty, Player.Empty]
+  ]) {
     this.board = board
   }
 

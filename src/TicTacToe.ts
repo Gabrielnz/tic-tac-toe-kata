@@ -7,12 +7,7 @@ export class TicTacToe {
   private currentPlayer: Player
 
   constructor () {
-    const newBoard = [
-      [Player.Empty, Player.Empty, Player.Empty],
-      [Player.Empty, Player.Empty, Player.Empty],
-      [Player.Empty, Player.Empty, Player.Empty]
-    ]
-    this.gameBoard = new Board(newBoard)
+    this.gameBoard = new Board()
     this.currentPlayer = Player.X
   }
 
