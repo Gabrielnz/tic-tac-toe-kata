@@ -2,7 +2,7 @@ import { Player } from './Player'
 import { Coordinates } from './Coordinates'
 
 export class Board {
-  private board: Player[][]
+  private readonly board: Player[][]
 
   constructor (board: Player[][] = [
     [Player.Empty, Player.Empty, Player.Empty],

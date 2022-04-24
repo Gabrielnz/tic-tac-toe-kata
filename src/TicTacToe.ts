@@ -3,7 +3,7 @@ import { Coordinates } from './Coordinates'
 import { Player } from './Player'
 
 export class TicTacToe {
-  private gameBoard: Board
+  private readonly gameBoard: Board
   private currentPlayer: Player
 
   constructor () {

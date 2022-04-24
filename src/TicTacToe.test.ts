@@ -116,7 +116,7 @@ describe('tic tac toe', () => {
   })
 })
 
-function playToFillTheBoard(game: TicTacToe) {
+function playToFillTheBoard (game: TicTacToe): void {
   game.play(new Coordinates(0, 0))
   game.play(new Coordinates(0, 2))
   game.play(new Coordinates(0, 1))
@@ -128,7 +128,7 @@ function playToFillTheBoard(game: TicTacToe) {
   game.play(new Coordinates(2, 2))
 }
 
-function playSomeMoves(game: TicTacToe) {
+function playSomeMoves (game: TicTacToe): void {
   game.play(new Coordinates(0, 0))
   game.play(new Coordinates(2, 2))
   game.play(new Coordinates(1, 0))
